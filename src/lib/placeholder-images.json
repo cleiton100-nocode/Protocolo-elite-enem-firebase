@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "tri-video-thumbnail",
+      "description": "Thumbnail for the TRI pain point video",
+      "imageUrl": "https://picsum.photos/seed/tri-video/1280/720",
+      "imageHint": "graph chart"
+    },
+    {
+      "id": "testimonial-avatar-1",
+      "description": "Avatar for the first testimonial",
+      "imageUrl": "https://picsum.photos/seed/t1/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-avatar-2",
+      "description": "Avatar for the second testimonial",
+      "imageUrl": "https://picsum.photos/seed/t2/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-avatar-3",
+      "description": "Avatar for the third testimonial",
+      "imageUrl": "https://picsum.photos/seed/t3/100/100",
+      "imageHint": "person portrait"
+    }
+  ]
+}
