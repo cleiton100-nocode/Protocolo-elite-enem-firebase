@@ -1,0 +1,42 @@
+name: Build e Compactar Site Estático
+
+# Gatilho: Roda sempre que você der 'git push' para a branch 'main'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-zip:
+    runs-on: ubuntu-latest # Usa um servidor Linux virtual
+
+    steps:
+      # 1. Baixa o seu código-fonte do GitHub
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      # 2. Configura o ambiente (Node.js)
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Usa o Node.js versão 20
+          cache: 'npm'
+
+      # 3. Instala as dependências (igual a 'npm install')
+      - name: Instalar Dependências
+        run: npm ci
+
+      # 4. Roda o build (igual a 'npm run build' para criar a pasta 'out')
+      - name: Gerar arquivos estáticos
+        run: npm run build
+
+      # 5. Compacta a pasta 'out' em um arquivo 'out.zip'
+      - name: Compactar pasta 'out'
+        run: zip -r out.zip ./out
+
+      # 6. Disponibiliza o 'out.zip' para download
+      - name: Fazer Upload do Artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-pronto-para-hostinger # O nome do arquivo que você vai baixar
+          path: out.zip # O arquivo que ele deve pegar
